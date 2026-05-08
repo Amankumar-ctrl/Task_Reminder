@@ -1,8 +1,6 @@
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-import schedule
-import time
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -81,12 +79,6 @@ Here is your schedule for today:
 # RUN DAILY AT 7 AM
 # =========================
 
-schedule.every().day.at("10:05").do(send_email)
-
-print("Bot is running...")
-
-while True:
-
-    schedule.run_pending()
-
-    time.sleep(30)
+print("Sending scheduled email...")
+send_email()
+print("Done.")
